@@ -5,6 +5,7 @@ inputs:
     description: 'Composer command to run'
     required: true
     default: install --no-interaction
+
 outputs:
   time:
     description: 'The time the action was run'
@@ -13,7 +14,7 @@ runs:
   image: 'Dockerfile'
   args:
     - ${{ inputs.command }}
-    - ${{ inputs.args }}
+    - --working-dir=plugins/ups-algolia
     - --no-progress
 branding:
   icon: 'package'
