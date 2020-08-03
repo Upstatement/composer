@@ -3,11 +3,12 @@ description: 'Use the Composer CLI in your Github Actions.'
 inputs:
   command:
     description: 'Composer command to run'
-    required: true
-    default: install --no-interaction
+    required: false
+    default: install
   args:
     description: 'Command arguments to pass'
     required: false
+    default: --no-progress
 outputs:
   time:
     description: 'The time the action was run'
@@ -17,7 +18,6 @@ runs:
   args:
     - ${{inputs.command}}
     - ${{inputs.args}}
-    - --no-progress
 branding:
   icon: 'package'
   color: 'purple'
